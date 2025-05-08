@@ -5,54 +5,149 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GeenGelul.xyz</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       body {
-        font-family: 'Fredoka', sans-serif;
+        font-family: "Fredoka", sans-serif;
+      }
+      .fade-in-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+      .fade-in-up.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .parallax {
+        transform: translateY(30px);
+        transition: transform 0.8s ease-out;
+      }
+      .parallax.is-visible {
+        transform: translateY(0);
+      }
+      /* Hover Animations */
+      a.button {
+        transition: background-color 0.3s ease, transform 0.3s ease,
+          box-shadow 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+      a.button:hover {
+        background-color: #d8b4fe;
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      }
+      a.button:active {
+        transform: translateY(0) scale(1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+      .logo:hover {
+        transform: scale(1.1) rotate(5deg);
+        transition: transform 0.4s ease;
+      }
+      .logo {
+        transition: transform 0.4s ease;
       }
     </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const fadeElements = document.querySelectorAll(
+          ".fade-in-up, .parallax"
+        );
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+        fadeElements.forEach((el) => observer.observe(el));
+      });
+    </script>
   </head>
-  <body class="bg-gradient-to-br from-purple-950 via-purple-900 to-purple-800 text-white">
+  <body
+    class="bg-gradient-to-br from-purple-950 via-purple-900 to-purple-800 text-white"
+  >
     <!-- Hero -->
-    <section class="text-center py-20 px-4">
-      <h1 class="text-4xl md:text-6xl font-bold mb-4">Muziek van de radio. Zonder gelul.</h1>
+    <section class="text-center py-20 px-4 fade-in-up">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">
+        Muziek van de radio. Zonder gelul.
+      </h1>
       <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8">
-        Geen DJ’s. Geen reclames. Elke dag een verse Spotify playlist met de tracks van jouw favoriete Nederlandse radiostations.
+        Geen DJ’s. Geen reclames. Elke dag een verse Spotify playlist met de
+        tracks van jouw favoriete Nederlandse radiostations.
       </p>
-      <a href="#playlist" class="bg-white text-purple-950 font-semibold px-6 py-3 rounded-full hover:bg-purple-200 transition">Check de playlist</a>
+      <a
+        href="#playlist"
+        class="bg-white text-purple-950 font-semibold px-6 py-3 rounded-full button"
+        >Check de playlist</a
+      >
     </section>
 
     <!-- Zo werkt het -->
-    <section class="py-16 px-6 max-w-3xl mx-auto text-center">
+    <section class="py-16 px-6 max-w-3xl mx-auto text-center fade-in-up">
       <h2 class="text-3xl font-bold mb-6">Zo werkt het</h2>
       <ul class="space-y-4 text-lg">
-        <li>📡 We scrapen dagelijks de playlists van Nederlandse radiostations.</li>
+        <li>
+          📡 We scrapen dagelijks de playlists van Nederlandse radiostations.
+        </li>
         <li>🎶 We filteren alleen de muziek eruit, geen praatjes.</li>
-        <li>🟢 Jij krijgt elke dag een verse Spotify playlist voorgeschoteld.</li>
+        <li>
+          🟢 Jij krijgt elke dag een verse Spotify playlist voorgeschoteld.
+        </li>
       </ul>
     </section>
 
     <!-- Wat je kunt verwachten -->
-    <section class="py-16 px-6 bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900">
-      <h2 class="text-3xl font-bold text-center mb-8">Wat je kunt verwachten</h2>
-      <div class="flex flex-wrap justify-center gap-8">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/NPO_Radio_2_logo_2023.svg" alt="NPO Radio 2" class="h-12">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Radio_538_logo_2020.svg" alt="Radio 538" class="h-12">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Qmusic_logo_2015.svg" alt="Qmusic" class="h-12">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NPO_3FM_logo_2020.svg" alt="3FM" class="h-12">
+    <section
+      class="py-16 px-6 bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 fade-in-up"
+    >
+      <h2 class="text-3xl font-bold text-center mb-8">
+        Wat je kunt verwachten
+      </h2>
+      <div class="flex flex-wrap justify-center gap-8 parallax">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/2/2d/NPO_Radio_2_logo_2023.svg"
+          alt="NPO Radio 2"
+          class="h-12 logo"
+        />
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Radio_538_logo_2020.svg"
+          alt="Radio 538"
+          class="h-12 logo"
+        />
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/4/46/Qmusic_logo_2015.svg"
+          alt="Qmusic"
+          class="h-12 logo"
+        />
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NPO_3FM_logo_2020.svg"
+          alt="3FM"
+          class="h-12 logo"
+        />
       </div>
     </section>
 
     <!-- Over het project -->
-    <section class="py-16 px-6 max-w-3xl mx-auto text-center">
+    <section class="py-16 px-6 max-w-3xl mx-auto text-center fade-in-up">
       <h2 class="text-3xl font-bold mb-6">Waarom GeenGelul.xyz?</h2>
       <p class="text-lg">
-        Als muziekliefhebber wil je gewoon lekker luisteren. Geen reclame, geen DJ die z'n weekend bespreekt, gewoon muziek. Daarom scrapen we dagelijks de playlists van Nederlandse radiozenders en maken we automatisch een Spotify playlist. Elke dag. Verser dan dit wordt het niet.
+        Als muziekliefhebber wil je gewoon lekker luisteren. Geen reclame, geen
+        DJ die z'n weekend bespreekt, gewoon muziek. Daarom scrapen we dagelijks
+        de playlists van Nederlandse radiozenders en maken we automatisch een
+        Spotify playlist. Elke dag. Verser dan dit wordt het niet.
       </p>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-purple-800 text-center py-8 text-sm">
+    <footer class="bg-purple-800 text-center py-8 text-sm fade-in-up">
       <p>© GeenGelul.xyz – gemaakt met liefde (en frustratie)</p>
     </footer>
   </body>
