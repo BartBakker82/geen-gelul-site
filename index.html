@@ -54,6 +54,16 @@
       html {
         scroll-behavior: smooth;
       }
+      /* Import Google Font */
+      @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@900&display=swap");
+
+      /* Stijl voor geengelul.fm */
+      .text-geengelul {
+        font-family: "Outfit", sans-serif;
+        color: #ffcc00;
+        letter-spacing: -0.5px;
+        text-shadow: 2px 2px 0px #660000, 4px 4px 0px #330000;
+      }
     </style>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -79,9 +89,17 @@
   >
     <!-- Hero -->
     <section class="text-center py-20 px-4 fade-in-up">
-      <h1 class="text-4xl md:text-6xl font-bold mb-4">
-        Muziek van de radio. Zonder gelul.
+      <img
+        src="images/geengelul_fm_logo.png"
+        alt="GeenGelul.fm Logo"
+        class="mx-auto w-40 mb-4 logo"
+      />
+      <h1 class="text-6xl md:text-8xl font-extrabold mb-4 text-geengelul">
+        geengelul.fm
       </h1>
+      <p class="text-4xl md:text-6xl font-bold mb-4">
+        Muziek van de radio. Zonder gelul.
+      </p>
       <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8 text-yellow-500">
         Geen DJ’s. Geen reclames. Elke dag een verse Spotify playlist met de
         tracks van jouw favoriete Nederlandse radiostations.
